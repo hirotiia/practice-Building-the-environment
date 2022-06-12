@@ -1,5 +1,5 @@
 import my from './init.js' ;
-import '../css/style.css';
+import '../scss/style.scss';
 
 
 

@@ -12,7 +12,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.css$/,
+        test: /\.(css|sass|scss)$/,
         use: [
           // 下から上に適応される
           { 
@@ -22,6 +22,9 @@ module.exports = {
           {
             loader: 'css-loader',
           },
+          {
+            loader: 'sass-loader'
+          }
         ]
       }
     ]
