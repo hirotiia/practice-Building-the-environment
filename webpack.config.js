@@ -1,12 +1,13 @@
 const path = require('path');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: './src/js/index.js',
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js',
+    filename: 'js/bundle.js',
   },
   module: {
     rules: [
@@ -15,24 +16,23 @@ module.exports = {
         use: [
           // 下から上に適応される
           { 
-              loader: MiniCssExtractPlugin.loader 
+            loader: MiniCssExtractPlugin.loader 
           },
           // [css-loader](/loaders/css-loader)
           {
             loader: 'css-loader',
           },
-          // [sass-loader](/loaders/sass-loader)
-          { 
-            loader: 'sass-loader' 
-          }
         ]
       }
     ]
   },
   plugins: [
-      new MiniCssExtractPlugin(),
+      new MiniCssExtractPlugin({
+        filename: 'css/style.css'
+      }),
       new HtmlWebpackPlugin({
-          template: './src/index.html'
-      })
+          template: './src/templates/index.html'
+      }),
+      new CleanWebpackPlugin()
   ]
 };
