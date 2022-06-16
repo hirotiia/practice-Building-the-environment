@@ -90,6 +90,45 @@ const Car1: {
     price: 10000000,
 }
 
+// 関数に対して型注釈を行う場合
+// 型推論はどうなる？ 引き数の方は型推論できないが、返り値には型推論が効く
+
+function add( a: number , b: number ):number {
+    return a + b;
+}
+
+// Void 何も返さない型 といいつつundifinedを返す
+
+function sayHello(): void {
+    console.log('Hello');
+}
+
+// 関数を変数の中に入れた場合の型注釈の返り値は矢印！　=>
+
+const anotherAdd: (n1: number, n2: number) => number = add;
+
+const doubleNumber:(num: number) => number = num => num*2;
+
+// コールバック関数の場合の型注釈
+
+function handle(num: number, cb: (num: number) => number): void = {
+    const doubleNum = cd(num * 2);
+    console.log(doubleNum);
+}
+handle(21,callback => {
+    return doubleNumber;
+})
+
+// never型
+
+function error(message: string):never = {
+    throw new Error(message);
+}
+
+console.log(error('This is an error'));
+
+
+// unknown型はメタモン
 
 
 
