@@ -36,7 +36,7 @@ enum CofeeSize {
 
 const cofee = {
     hot: true,
-    size: Cofeesize.TALL
+    size: CofeeSize.TALL
 }
 
 // TSにおけるany型 javascriptに戻る(typescriptではanyはなるべく使わないように心がける)
@@ -52,7 +52,7 @@ anything = {};
 let UnionType: number | string = 10;
 
 // ユニオンタイプの値が数字の場合 (numberで使用できるメソッドが使用可能になる)
-UnionType.toUpperCase();
+
 UnionType = '卍';
 // ユニオンタイプの値が文字の場合 (stringで使用できるメソッドが使用可能になる)
 UnionType.toUpperCase();
@@ -111,25 +111,24 @@ const doubleNumber:(num: number) => number = num => num*2;
 
 // コールバック関数の場合の型注釈
 
-function handle(num: number, cb: (num: number) => number): void = {
-    const doubleNum = cd(num * 2);
+function handle(num: number, cb: (num: number) => number): void {
+    const doubleNum = cb(num * 2);
     console.log(doubleNum);
 }
-handle(21,callback => {
-    return doubleNumber;
-})
+
 
 // never型
 
-function error(message: string):never = {
-    throw new Error(message);
-}
+// function error(message: string):never {
+//     throw new Error(message);
+// }
 
-console.log(error('This is an error'));
+// console.log(error('This is an error'));
 
 
 // unknown型はメタモン
 
+const hello = 'hello';
 
-
+console.log(hello.toUpperCase());
 
