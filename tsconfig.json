@@ -5,6 +5,7 @@
         "target": "ES5",
         "jsx": "react",
         "lib": [],
-        "noImplicitAny": false
+        "noImplicitAny": false,
+        "experimentalDecorators": true
     }
 }
